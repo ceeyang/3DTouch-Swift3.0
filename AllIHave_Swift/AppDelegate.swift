@@ -11,14 +11,47 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+    var window : UIWindow?
+    var homeVC = HomeViewController()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        window                     = UIWindow(frame: UIScreen.main.bounds)
+        homeVC                     = HomeViewController()
+        window?.rootViewController = UINavigationController(rootViewController: homeVC)
+        window?.makeKeyAndVisible()
+        
+        //MARK: - Add 3DTouch Icon
+        creatShortcutItem()
+
+        
+        if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
+            if shortcutItem.type == "com.daisy.AllIHave-Swift.firstButton" {
+                homeVC.navigationController?.pushViewController( MoveViewController(), animated: true)
+            } else if shortcutItem.type == "com.daisy.AllIHave-Swift.secondButton" {
+                
+            }
+            return false;
+        }
         return true
     }
-
+    
+    func creatShortcutItem() {
+        
+        let icon  = UIApplicationShortcutIcon(type: .share)
+        let item0 = UIApplicationShortcutItem(type: "com.daisy.AllIHave-Swift.firstButton", localizedTitle: "Move View", localizedSubtitle: nil, icon: icon, userInfo: nil)
+        let item1 = UIApplicationShortcutItem(type: "com.daisy.AllIHave-Swift.secondButton", localizedTitle: "Second View", localizedSubtitle: "There is no vc to push!", icon: icon, userInfo: nil)
+        UIApplication.shared.shortcutItems = [item0,item1];
+    }
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        if shortcutItem.type == "com.daisy.AllIHave-Swift.firstButton" {
+            homeVC.navigationController?.pushViewController( MoveViewController(), animated: true)
+        } else if shortcutItem.type == "com.daisy.AllIHave-Swift.secondButton" {
+            
+        }
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
