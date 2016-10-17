@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		071986F3A7E398C9ACB9DE17 /* Pods_AllIHave_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 661D0694B060D314DE176698 /* Pods_AllIHave_Swift.framework */; };
+		15147C361DB4FE8E0099ECBD /* 3DTouchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15147C351DB4FE8E0099ECBD /* 3DTouchViewController.swift */; };
 		15E672B41DA88DF000978179 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E672B31DA88DF000978179 /* AppDelegate.swift */; };
 		15E672B91DA88DF000978179 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15E672B71DA88DF000978179 /* Main.storyboard */; };
 		15E672BB1DA88DF000978179 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15E672BA1DA88DF000978179 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15147C351DB4FE8E0099ECBD /* 3DTouchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = 3DTouchViewController.swift; sourceTree = "<group>"; };
 		15E672B01DA88DF000978179 /* AllIHave_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllIHave_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15E672B31DA88DF000978179 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15E672B81DA88DF000978179 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		15FEBAD31DAA14B100628035 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				15147C351DB4FE8E0099ECBD /* 3DTouchViewController.swift */,
 				15FEBAD41DAA14CD00628035 /* MoveViewController.swift */,
 			);
 			path = Controller;
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15147C361DB4FE8E0099ECBD /* 3DTouchViewController.swift in Sources */,
 				15E672C71DA88EAC00978179 /* MoveView.swift in Sources */,
 				15FEBAD51DAA14CD00628035 /* MoveViewController.swift in Sources */,
 				15E672B41DA88DF000978179 /* AppDelegate.swift in Sources */,

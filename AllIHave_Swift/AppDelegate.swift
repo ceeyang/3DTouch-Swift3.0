@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if shortcutItem.type == "com.daisy.AllIHave-Swift.firstButton" {
                 homeVC.navigationController?.pushViewController( MoveViewController(), animated: true)
             } else if shortcutItem.type == "com.daisy.AllIHave-Swift.secondButton" {
-                
+                homeVC.navigationController?.pushViewController( _DTouchViewController(), animated: true)
             }
             return false;
         }
@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if shortcutItem.type == "com.daisy.AllIHave-Swift.firstButton" {
             homeVC.navigationController?.pushViewController( MoveViewController(), animated: true)
         } else if shortcutItem.type == "com.daisy.AllIHave-Swift.secondButton" {
-            
+            homeVC.navigationController?.pushViewController( _DTouchViewController(), animated: true)
         }
     }
     

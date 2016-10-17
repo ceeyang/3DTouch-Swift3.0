@@ -17,15 +17,14 @@ class MoveViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        title                   = "AllIHave_Swift"
-        view.backgroundColor    = UIColor.white
-        
+    
         setupUI()
-        
     }
     
     func setupUI() {
+        
+        title                   = "Move View"
+        view.backgroundColor    = UIColor.white
         
         /** setBtn */
         let setBtn              = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
@@ -48,7 +47,9 @@ class MoveViewController: UIViewController {
         moveImg.backgroundColor = UIColor.yellow
         moveImg.frame           = CGRect(x: 100, y: 150, width: 200, height: 200)
         view.addSubview(moveImg)
+        
     }
+    
     
     func setBtnClickAction(_ sender:UIButton) {
         moveBtn.dragEnable ? sender.setTitle("DragEnable", for: .normal) : sender.setTitle("DragAble", for: .normal)
@@ -62,6 +63,8 @@ class MoveViewController: UIViewController {
         }
         print("Move Btn Click")
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
