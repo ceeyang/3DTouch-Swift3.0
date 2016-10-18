@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import WebKit
+import SafariServices
 
 class _DTouchViewController: UIViewController,UIViewControllerPreviewingDelegate {
 
-    var touchBtn0 : UIButton?
-    var touchBtn1 : UIButton?
+    var touchBtn0 : MoveBtn!
+    var touchBtn1 : UIButton!
     var moveView = MoveViewController()
     
     
@@ -28,20 +28,21 @@ class _DTouchViewController: UIViewController,UIViewControllerPreviewingDelegate
         title                = "3DTouch View"
         view.backgroundColor = UIColor.white
         
-        touchBtn0 = UIButton(frame: CGRect(x: 100, y: 100, width: 150, height: 44))
-        touchBtn0?.backgroundColor = UIColor.lightGray
-        touchBtn0?.tag = 0;
-        touchBtn0?.setTitle("Touch Me To show MoveView", for: .normal)
-        touchBtn0?.setTitleColor(UIColor.green, for: .normal)
-        touchBtn0?.addTarget(self, action: #selector(touchBtnAction(sender:)), for: .touchUpInside)
+        touchBtn0 = MoveBtn(frame: CGRect(x: 100, y: 100, width: 150, height: 44))
+        touchBtn0.backgroundColor = UIColor.lightGray
+        touchBtn0.tag = 0;
+        touchBtn0.dragEnable = true
+        touchBtn0.setTitle("Touch Me To show MoveView", for: .normal)
+        touchBtn0.setTitleColor(UIColor.green, for: .normal)
+        touchBtn0.addTarget(self, action: #selector(touchBtnAction(sender:)), for: .touchUpInside)
         view.addSubview(touchBtn0!)
         
         touchBtn1 = UIButton(frame: CGRect(x: 100, y: 200, width: 150, height: 44))
-        touchBtn1?.backgroundColor = UIColor.lightGray
-        touchBtn1?.tag = 1;
-        touchBtn1?.setTitle("Touch Me To show Safari", for: .normal)
-        touchBtn1?.setTitleColor(UIColor.green, for: .normal)
-        touchBtn1?.addTarget(self, action: #selector(touchBtnAction(sender:)), for: .touchUpInside)
+        touchBtn1.backgroundColor = UIColor.lightGray
+        touchBtn1.tag = 1;
+        touchBtn1.setTitle("Touch Me To show Safari", for: .normal)
+        touchBtn1.setTitleColor(UIColor.green, for: .normal)
+        touchBtn1.addTarget(self, action: #selector(touchBtnAction(sender:)), for: .touchUpInside)
         view.addSubview(touchBtn1!)
     }
 
@@ -70,7 +71,8 @@ extension _DTouchViewController {
         if previewingContext.sourceView == touchBtn0 {
             navigationController?.pushViewController(moveView, animated: true)
         } else {
-            
+            let safariView = SFSafariViewController(url: NSURL(string:"http://www.baidu.com")! as URL)
+            navigationController?.pushViewController(safariView, animated: true)
         }
     }
     
@@ -80,8 +82,23 @@ extension _DTouchViewController {
             moveView.preferredContentSize = CGSize(width: 0, height: 0)
             return moveView
         } else {
-            return UIViewController()
-            //return  SFSafariViewController(URL: NSURL(string:"http://ray.dotnetage.com")!)
+            return SFSafariViewController(url: NSURL(string:"http://www.baidu.com")! as URL)
+        }
+    }
+
+}
+
+extension SFSafariViewController {
+    
+    open override var previewActionItems: [UIPreviewActionItem] {
+        get {
+            let action0 = UIPreviewAction(title: "Press Me!", style: .default) { (action, viewController) in
+                print("I believe I can fly")
+            }
+            let action1 = UIPreviewAction(title: "Action Two", style: .default, handler: { (action, viewController) in
+                print("Action Two Btn Click")
+            })
+            return [UIPreviewAction](arrayLiteral: action0,action1)
         }
     }
 }
