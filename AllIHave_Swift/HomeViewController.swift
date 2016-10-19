@@ -8,6 +8,7 @@
 
 import UIKit
 import SafariServices
+import SnapKit
 
 let CellIdentifier : String = "CellReuseIdentifier"
 
@@ -31,11 +32,14 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         view.backgroundColor     = UIColor.white
         
         /** MainTableView */
-        mainTableView            = UITableView(frame: view.frame, style: .plain)
+        mainTableView            = UITableView()
         mainTableView.delegate   = self
         mainTableView.dataSource = self
         view.addSubview(mainTableView)
-        
+        mainTableView.snp.makeConstraints { (make) in
+            make.edges.equalTo(view)
+        }
+
     }
     
     func registerPreview() {

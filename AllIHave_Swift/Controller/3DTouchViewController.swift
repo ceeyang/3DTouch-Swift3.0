@@ -8,6 +8,7 @@
 
 import UIKit
 import SafariServices
+import SnapKit
 
 class _DTouchViewController: UIViewController,UIViewControllerPreviewingDelegate {
 
@@ -28,7 +29,12 @@ class _DTouchViewController: UIViewController,UIViewControllerPreviewingDelegate
         title                = "3DTouch View"
         view.backgroundColor = UIColor.white
         
-        touchBtn0 = MoveBtn(frame: CGRect(x: 100, y: 100, width: 150, height: 44))
+        //let btnTitleArr = ["Touch Me To Show MoveView",
+        //                   "Touch Me To Show SafariView"]
+        // var btnArr:[MoveBtn]     = []
+        // var btnArr:Array<MoveBtn> = [] //两种方式均可
+ 
+        touchBtn0 = MoveBtn()
         touchBtn0.backgroundColor = UIColor.lightGray
         touchBtn0.tag = 0;
         touchBtn0.dragEnable = true
@@ -36,14 +42,25 @@ class _DTouchViewController: UIViewController,UIViewControllerPreviewingDelegate
         touchBtn0.setTitleColor(UIColor.green, for: .normal)
         touchBtn0.addTarget(self, action: #selector(touchBtnAction(sender:)), for: .touchUpInside)
         view.addSubview(touchBtn0!)
+        touchBtn0.snp.makeConstraints { (make) in
+            make.centerX.equalTo(view)
+            make.top.equalTo(view.snp.top).offset(40 + 64)
+            make.width.greaterThanOrEqualTo(100)
+            make.height.equalTo(44)
+        }
         
-        touchBtn1 = UIButton(frame: CGRect(x: 100, y: 200, width: 150, height: 44))
+        touchBtn1 = UIButton()
         touchBtn1.backgroundColor = UIColor.lightGray
         touchBtn1.tag = 1;
         touchBtn1.setTitle("Touch Me To show Safari", for: .normal)
         touchBtn1.setTitleColor(UIColor.green, for: .normal)
         touchBtn1.addTarget(self, action: #selector(touchBtnAction(sender:)), for: .touchUpInside)
         view.addSubview(touchBtn1!)
+        touchBtn1.snp.makeConstraints { (make) in
+            make.centerX.equalTo(view)
+            make.top.equalTo(touchBtn0.snp.bottom).offset(50)
+            make.size.equalTo(touchBtn0.snp.size)
+        }
     }
 
     func registerPreview() {
@@ -51,7 +68,7 @@ class _DTouchViewController: UIViewController,UIViewControllerPreviewingDelegate
             registerForPreviewing(with: self, sourceView: touchBtn0!)
             registerForPreviewing(with: self, sourceView: touchBtn1!)
         } else {
-            print("该设备部支持 3DTouch !")
+            print("3DTouch is Not Support")
         }
     }
     
@@ -92,13 +109,17 @@ extension SFSafariViewController {
     
     open override var previewActionItems: [UIPreviewActionItem] {
         get {
-            let action0 = UIPreviewAction(title: "Press Me!", style: .default) { (action, viewController) in
-                print("I believe I can fly")
+            let action0 = UIPreviewAction(title: "Default Btn", style: .default) { (action, viewController) in
+                print("Default Action")
             }
-            let action1 = UIPreviewAction(title: "Action Two", style: .default, handler: { (action, viewController) in
-                print("Action Two Btn Click")
+            let action1 = UIPreviewAction(title: "Selected Btn", style: .selected, handler: { (action, viewController) in
+                print("Selected Action")
             })
-            return [UIPreviewAction](arrayLiteral: action0,action1)
+            let action2 = UIPreviewAction(title: "Destructive Btn", style: .destructive) { (action, viewController) in
+                print("Destructive Action")
+            }
+            
+            return [UIPreviewAction](arrayLiteral: action0,action1,action2)
         }
     }
 }
