@@ -21,26 +21,28 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataArray = ["MoveView","Others"]
+        dataArray = ["MoveView Test VC","3D-Touch Test VC","GCD Test VC", "Model Test VC"]
         setupUI()
         //registerPreview()
     }
     
     func setupUI() {
         
-        title                    = "AllIHave_Swift"
-        view.backgroundColor     = UIColor.white
+        title                         = "AllIHave_Swift"
+        view.backgroundColor          = UIColor.white
         
         /** MainTableView */
-        mainTableView            = UITableView()
-        mainTableView.delegate   = self
-        mainTableView.dataSource = self
+        mainTableView                 = UITableView()
+        mainTableView.tableFooterView = UIView()
+        mainTableView.delegate        = self
+        mainTableView.dataSource      = self
         view.addSubview(mainTableView)
         mainTableView.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
         }
 
     }
+    
     
     func registerPreview() {
         if traitCollection.forceTouchCapability == .available {
@@ -63,7 +65,7 @@ extension HomeViewController {
     
     @objc(tableView:heightForRowAtIndexPath:)
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 60
     }
     
     @objc(tableView:cellForRowAtIndexPath:)
@@ -82,9 +84,14 @@ extension HomeViewController {
         print("Cell Did Selected At Row : \(indexPath.row)")
         if indexPath.row == 0 {
             navigationController?.pushViewController( moveView, animated: true)
-        } else {
+        } else if indexPath.row == 1{
             navigationController?.pushViewController( _DTouchViewController(), animated: true)
+        } else if indexPath.row == 2{
+            navigationController?.pushViewController( GCDTestViewController(), animated: true)
+        } else if indexPath.row == 3{
+            navigationController?.pushViewController( ModelTestController(), animated: true)
         }
+        
     }
     
     //MARK: - UIViewControllerPreviewingDelegate -

@@ -7,5 +7,5 @@ target 'AllIHave_Swift' do
 
   # Pods for AllIHave_Swif
 pod 'SnapKit', '~> 3.0.2'
-
+pod 'SwiftyJSON'
 end

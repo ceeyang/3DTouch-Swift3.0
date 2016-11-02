@@ -16,6 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        let number : Int = 20002131232432
+        if number&1 == 1 {
+            print("\(number) 是奇数")
+        } else {
+            print("\(number) 是偶数")
+        }
+        
+        
         window                     = UIWindow(frame: UIScreen.main.bounds)
         homeVC                     = HomeViewController()
         window?.rootViewController = UINavigationController(rootViewController: homeVC)
@@ -24,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //MARK: - Add 3DTouch Icon
         creatShortcutItem()
 
-        
+        //MARK: - 程序已经启动了,进入后台后, 3DTouch 入口 -
         if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
             if shortcutItem.type == "com.daisy.AllIHave-Swift.firstButton" {
                 homeVC.navigationController?.pushViewController( MoveViewController(), animated: true)
@@ -36,6 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    //MARK: - ShortcutItem -
     func creatShortcutItem() {
         
         let icon  = UIApplicationShortcutIcon(type: .share)
@@ -44,6 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.shortcutItems = [item0,item1];
     }
     
+    //MARK: - 程序未启动时 3DTouch 入口 -
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         if shortcutItem.type == "com.daisy.AllIHave-Swift.firstButton" {
             homeVC.navigationController?.pushViewController( MoveViewController(), animated: true)
