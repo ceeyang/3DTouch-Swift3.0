@@ -9,9 +9,13 @@
 /* Begin PBXBuildFile section */
 		071986F3A7E398C9ACB9DE17 /* Pods_AllIHave_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 661D0694B060D314DE176698 /* Pods_AllIHave_Swift.framework */; };
 		15147C361DB4FE8E0099ECBD /* 3DTouchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15147C351DB4FE8E0099ECBD /* 3DTouchViewController.swift */; };
+		153BD0DA1DE81155008EDE3B /* VidoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153BD0D91DE81155008EDE3B /* VidoPlayerViewController.swift */; };
+		15C96E721DCC6E820076C37A /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C96E711DCC6E820076C37A /* TestTableViewCell.swift */; };
+		15C96E741DCC6EA10076C37A /* TableViewTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C96E731DCC6EA10076C37A /* TableViewTestController.swift */; };
 		15CB85ED1DC99ED000CBA466 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CB85EC1DC99ED000CBA466 /* NSObjectExtension.swift */; };
 		15CB85F01DC9A02200CBA466 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CB85EF1DC9A02200CBA466 /* UserInfo.swift */; };
 		15CB85F21DC9A16A00CBA466 /* ModelTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CB85F11DC9A16A00CBA466 /* ModelTestController.swift */; };
+		15D5C22A1DD9457300E02B37 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D5C2291DD9457300E02B37 /* BaseModel.swift */; };
 		15E672B41DA88DF000978179 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E672B31DA88DF000978179 /* AppDelegate.swift */; };
 		15E672B91DA88DF000978179 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15E672B71DA88DF000978179 /* Main.storyboard */; };
 		15E672BB1DA88DF000978179 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15E672BA1DA88DF000978179 /* Assets.xcassets */; };
@@ -26,9 +30,13 @@
 
 /* Begin PBXFileReference section */
 		15147C351DB4FE8E0099ECBD /* 3DTouchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = 3DTouchViewController.swift; sourceTree = "<group>"; };
+		153BD0D91DE81155008EDE3B /* VidoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VidoPlayerViewController.swift; sourceTree = "<group>"; };
+		15C96E711DCC6E820076C37A /* TestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
+		15C96E731DCC6EA10076C37A /* TableViewTestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewTestController.swift; sourceTree = "<group>"; };
 		15CB85EC1DC99ED000CBA466 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
 		15CB85EF1DC9A02200CBA466 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		15CB85F11DC9A16A00CBA466 /* ModelTestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTestController.swift; sourceTree = "<group>"; };
+		15D5C2291DD9457300E02B37 /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		15E672B01DA88DF000978179 /* AllIHave_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllIHave_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15E672B31DA88DF000978179 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15E672B81DA88DF000978179 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,10 +66,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15C96E701DCC6E6F0076C37A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				15C96E711DCC6E820076C37A /* TestTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		15CB85EE1DC9A00F00CBA466 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				15CB85EF1DC9A02200CBA466 /* UserInfo.swift */,
+				15D5C2291DD9457300E02B37 /* BaseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -130,10 +147,13 @@
 		15FEBAD31DAA14B100628035 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				15C96E701DCC6E6F0076C37A /* View */,
 				15147C351DB4FE8E0099ECBD /* 3DTouchViewController.swift */,
 				15FEBAD41DAA14CD00628035 /* MoveViewController.swift */,
 				15F72B331DC889C600A8FC6F /* GCDTestViewController.swift */,
 				15CB85F11DC9A16A00CBA466 /* ModelTestController.swift */,
+				15C96E731DCC6EA10076C37A /* TableViewTestController.swift */,
+				153BD0D91DE81155008EDE3B /* VidoPlayerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -285,12 +305,16 @@
 				15CB85ED1DC99ED000CBA466 /* NSObjectExtension.swift in Sources */,
 				15147C361DB4FE8E0099ECBD /* 3DTouchViewController.swift in Sources */,
 				15F72B341DC889C600A8FC6F /* GCDTestViewController.swift in Sources */,
+				153BD0DA1DE81155008EDE3B /* VidoPlayerViewController.swift in Sources */,
 				15E672C71DA88EAC00978179 /* MoveView.swift in Sources */,
 				15CB85F01DC9A02200CBA466 /* UserInfo.swift in Sources */,
 				15FEBAD51DAA14CD00628035 /* MoveViewController.swift in Sources */,
+				15D5C22A1DD9457300E02B37 /* BaseModel.swift in Sources */,
 				15CB85F21DC9A16A00CBA466 /* ModelTestController.swift in Sources */,
+				15C96E741DCC6EA10076C37A /* TableViewTestController.swift in Sources */,
 				15E672B41DA88DF000978179 /* AppDelegate.swift in Sources */,
 				15E672C91DA8938300978179 /* HomeViewController.swift in Sources */,
+				15C96E721DCC6E820076C37A /* TestTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

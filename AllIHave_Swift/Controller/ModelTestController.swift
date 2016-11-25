@@ -24,12 +24,16 @@ class ModelTestController: UIViewController {
                    "email":"888888@qq.com",
                    "address":"广东深圳"]
         
-        let userModel = UserInfo()
-        userModel.parseData(dic: testDic!)
-        print(userModel.name,userModel.phonenumber)
+        /** 字典转模型 */
+        let userModel0 = UserInfo()
+        userModel0.parseData(dic: testDic!)
+        print(userModel0.name,userModel0.phonenumber)
         
-        
-        
+        /** JSON转模型 */
+        let userModel1 = UserInfo()
+        let json = JSON(testDic)
+        userModel1.parseData(json: json)
+        print(userModel1.name,userModel1.phonenumber)
     }
 
     override func didReceiveMemoryWarning() {

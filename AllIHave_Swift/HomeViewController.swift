@@ -21,7 +21,7 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataArray = ["MoveView Test VC","3D-Touch Test VC","GCD Test VC", "Model Test VC"]
+        dataArray = ["MoveView Test VC","3D-Touch Test VC","GCD Test VC", "Model Test VC","TableView Test VC","VidoPlayer"]
         setupUI()
         //registerPreview()
     }
@@ -90,6 +90,10 @@ extension HomeViewController {
             navigationController?.pushViewController( GCDTestViewController(), animated: true)
         } else if indexPath.row == 3{
             navigationController?.pushViewController( ModelTestController(), animated: true)
+        } else if indexPath.row == 4 {
+            navigationController?.pushViewController( TableViewTestController(), animated: true)
+        } else if indexPath.row == 4 {
+            navigationController?.pushViewController( VidoPlayerViewController(), animated: true)
         }
         
     }
